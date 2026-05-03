@@ -42,18 +42,20 @@ class DynamicVehicle(base.Vehicle):
         obst_radius = 1.68
 
         # Keep these close to the original controller's tuned static-obstacle values.
-        R_max = 10.0
-        safe_dist = 2.30
-        k_u = 780.0
-        k_close = 1800.0
-        front_cost_dist = 18.0
+        R_max = 8.0
+        safe_dist = 1.80
+        k_u = 220.0
+        k_close = 450.0
+        front_cost_dist = 10.0
         back_release_dist = 1.2
-        side_clearance = 2.75
-        k_side = 300.0
-        v_min_near = 2.0
-        k_vnear = 72.0
-        k_brake_near = 72.0
-        lateral_consider = 3.8
+
+        side_clearance = 2.20
+        k_side = 80.0
+
+        v_min_near = 1.0
+        k_vnear = 20.0
+        k_brake_near = 10.0
+        lateral_consider = 3.2
         eps = 1e-3
         front_gate_den = max(front_cost_dist - R_max, 1e-3)
         dt = float(base.dt if base.dt is not None else 0.05)

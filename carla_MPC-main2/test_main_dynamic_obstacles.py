@@ -70,15 +70,20 @@ env.reset(spawn_point=spawn_points[start_idx])
 # =============================
 obstacle_manager = RouteDynamicObstacleManager(env, route)
 
-# Lead vehicle: moving slowly in the same lane ahead of ego.
-# Increase/decrease route_index if it spawns too near/far on your map.
-if len(route) > 110:
-    obstacle_manager.spawn_on_route(route_index=110, speed_mps=3.0, lateral_offset=0.0)
+if len(route) > 120:
+    obstacle_manager.spawn_on_route(
+        route_index=120,
+        speed_mps=3.0,
+        lateral_offset=0.0
+    )
 
-# 先注释掉第二个
-# if len(route) > 170:
-#     obstacle_manager.spawn_on_route(route_index=170, speed_mps=2.0, lateral_offset=0.35)
-
+# 先注释掉第二个，确认车能动以后再加回来
+# if len(route) > 180:
+#     obstacle_manager.spawn_on_route(
+#         route_index=180,
+#         speed_mps=2.0,
+#         lateral_offset=0.35
+#     )
 # Move once before the first MPC solve so obstacle velocities are initialized.
 obstacle_manager.tick(simu_step)
 env.world.tick()
