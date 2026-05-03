@@ -29,12 +29,11 @@ from src.dynamic_mpc_controller import DynamicVehicle
 from src.dynamic_xagent import DynamicObstacleXAgent
 from src.dynamic_obstacles import RouteDynamicObstacleManager
 
-
 # =============================
 # Simulation parameters
 # =============================
 simu_step = 0.05
-target_v = 40          # ego target speed, km/h
+target_v = 40  # ego target speed, km/h
 sample_res = 2.0
 display_mode = "spec"  # "spec" or "pygame"
 max_sim_steps = 2000
@@ -44,7 +43,6 @@ LOG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "debug_logs_d
 os.makedirs(LOG_DIR, exist_ok=True)
 os.environ["MPC_DEBUG_LOG_DIR"] = LOG_DIR
 open(os.path.join(LOG_DIR, "run_debug.log"), "w", encoding="utf-8").close()
-
 
 # =============================
 # Environment setup
@@ -63,7 +61,6 @@ route = grp.trace_route(spawn_points[start_idx].location, spawn_points[end_idx].
 draw_waypoints(env.world, [wp for wp, _ in route], z=0.5, color=(0, 255, 0))
 
 env.reset(spawn_point=spawn_points[start_idx])
-
 
 # =============================
 # Dynamic obstacles
@@ -88,7 +85,6 @@ if len(route) > 120:
 obstacle_manager.tick(simu_step)
 env.world.tick()
 
-
 # =============================
 # MPC and agent
 # =============================
@@ -103,7 +99,6 @@ dynamic_model = DynamicVehicle(
 agent = DynamicObstacleXAgent(env, dynamic_model, obstacle_manager=obstacle_manager, dt=simu_step)
 agent.set_start_end_transforms(start_idx, end_idx)
 agent.plan_route(agent._start_transform, agent._end_transform)
-
 
 # =============================
 # Data logging
@@ -162,6 +157,7 @@ try:
 
         except Exception as e:
             import traceback
+
             with open(os.path.join(LOG_DIR, "error.log"), "w", encoding="utf-8") as f:
                 f.write(f"Error at step {step}: {e}\n")
                 f.write(traceback.format_exc())
@@ -170,7 +166,6 @@ try:
 
 except KeyboardInterrupt:
     pass
-
 
 # =============================
 # Plot results
