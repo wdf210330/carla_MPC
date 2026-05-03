@@ -148,7 +148,7 @@ class DynamicVehicle(base.Vehicle):
 
                 post_pass_cost_scale = 1.0 - 0.70 * pass_release_gate
                 self.obj += dynamic_scale * gate_front * lateral_gate * post_pass_cost_scale * (
-                    rep_potential + close_potential + near_gate * side_cost + v_near_cost + brake_near_cost
+                        rep_potential + close_potential + near_gate * side_cost + v_near_cost + brake_near_cost
                 ) / (i + 1)
 
         log("[DYNAMIC solver_add_soft_obs] dynamic obstacle potential added")
