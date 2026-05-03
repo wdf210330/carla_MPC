@@ -1,0 +1,4 @@
+# obstacle_0,x=94.0831,y=-52.7083,yaw_rad=-2.367976
+# obstacle_1,x=-21.3016,y=-64.7166,yaw_rad=3.152008
+step,time_s,solve_ms,a_opt,delta_opt,pred_x,pred_y,pred_yaw,pred_vx,actual_x,actual_y,actual_yaw,actual_vx,lat_err,min_obs_dist,min_obs_idx,near_obs,obs0_dist,obs0_ahead_m,obs0_lat_m,obs1_dist,obs1_ahead_m,obs1_lat_m,current_yaw_rh,ref_yaw_0,ref_yaw_1,pred_yaw_1,yaw_error_1,vel_error_0,target_ind,nearest_ahead_m,nearest_lat_m,speed_mode,cost_mode,target_v_kmh,dist_to_goal,stopped_flag,collision_flag,new_collision_flag,collision_count,last_collision_intensity,last_collision_actor
+ERROR,step=0,msg='Xagent' object has no attribute '_prev_unwrapped_yaw'
