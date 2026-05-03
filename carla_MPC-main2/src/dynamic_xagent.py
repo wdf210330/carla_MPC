@@ -12,16 +12,28 @@ import numpy as np
 class DynamicObstacleXAgent(Xagent):
     def __init__(self, env, model, obstacle_manager=None, dt=0.1):
         super().__init__(env, model, dt=dt)
+
         self.obstacle_manager = obstacle_manager
+        self._prev_unwrapped_yaw = getattr(self, "_prev_unwrapped_yaw", None)
+        self._last_target_ind = getattr(self, "_last_target_ind", 0)
+        self._last_ref_path = getattr(self, "_last_ref_path", None)
+        self._last_control = getattr(self, "_last_control", None)
 
-        # 兼容新版 x_v2x_agent.py 里的 yaw 连续化逻辑
-        # 防止 run_step() 第一次调用时报:
-        # AttributeError: 'DynamicObstacleXAgent' object has no attribute '_prev_unwrapped_yaw'
-        if not hasattr(self, "_prev_unwrapped_yaw"):
-            self._prev_unwrapped_yaw = None
+    def set_obstacles(self, obstacles):
+        """
+        动态避障专用：更新障碍物，但不每帧清空绕行方向。
+        """
+        self._obstacles = obstacles
 
-        if not hasattr(self, "_last_target_ind"):
-            self._last_target_ind = 0
+        if not hasattr(self, "_obs_pass_side"):
+            self._obs_pass_side = {}
+
+    def _align_angle_to_ref(self, angle, ref_angle):
+        while angle - ref_angle > np.pi:
+            angle -= 2.0 * np.pi
+        while angle - ref_angle < -np.pi:
+            angle += 2.0 * np.pi
+        return angle
 
     def run_step(self, lv=None):
         if self.obstacle_manager is not None:

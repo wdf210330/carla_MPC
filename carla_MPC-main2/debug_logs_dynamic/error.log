@@ -1,20 +1,85 @@
-Error at step 189: <built-in function nlpsol> returned a result with an error set
-Traceback (most recent call last):
-  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 18148, in <lambda>
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Function, name, value)
+Error at step 69: <built-in function Function_call> returned a result with an error set
 KeyboardInterrupt
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 9331, in <lambda>
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DM, name, value)
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 74, in _swig_setattr
+    return _swig_setattr_nondynamic(self, class_type, name, value, 0)
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 58, in _swig_setattr_nondynamic
+    if type(value).__name__ == 'SwigPyObject':
+SystemError: <class 'type'> returned a result with an error set
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 9331, in <lambda>
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DM, name, value)
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 74, in _swig_setattr
+    return _swig_setattr_nondynamic(self, class_type, name, value, 0)
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 58, in _swig_setattr_nondynamic
+    if type(value).__name__ == 'SwigPyObject':
+SystemError: <class 'type'> returned a result with an error set
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 9331, in <lambda>
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DM, name, value)
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 74, in _swig_setattr
+    return _swig_setattr_nondynamic(self, class_type, name, value, 0)
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 58, in _swig_setattr_nondynamic
+    if type(value).__name__ == 'SwigPyObject':
+SystemError: <class 'type'> returned a result with an error set
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 9331, in <lambda>
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DM, name, value)
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 74, in _swig_setattr
+    return _swig_setattr_nondynamic(self, class_type, name, value, 0)
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 58, in _swig_setattr_nondynamic
+    if type(value).__name__ == 'SwigPyObject':
+SystemError: <class 'type'> returned a result with an error set
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 9331, in <lambda>
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DM, name, value)
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 74, in _swig_setattr
+    return _swig_setattr_nondynamic(self, class_type, name, value, 0)
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 58, in _swig_setattr_nondynamic
+    if type(value).__name__ == 'SwigPyObject':
+SystemError: <class 'type'> returned a result with an error set
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 9331, in <lambda>
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DM, name, value)
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 74, in _swig_setattr
+    return _swig_setattr_nondynamic(self, class_type, name, value, 0)
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 58, in _swig_setattr_nondynamic
+    if type(value).__name__ == 'SwigPyObject':
+SystemError: <class 'type'> returned a result with an error set
 
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "C:\Users\Administrator\Desktop\carla_MPC\carla_MPC-main2\test_main_dynamic_obstacles.py", line 123, in <module>
     a_opt, delta_opt, next_state, solve_time_ms, lateral_error = agent.run_step()
-  File "C:\Users\Administrator\Desktop\carla_MPC\carla_MPC-main2\src\dynamic_xagent.py", line 29, in run_step
+  File "C:\Users\Administrator\Desktop\carla_MPC\carla_MPC-main2\src\dynamic_xagent.py", line 41, in run_step
     return super().run_step(lv=lv)
-  File "C:\Users\Administrator\Desktop\carla_MPC\carla_MPC-main2\src\x_v2x_agent.py", line 591, in run_step
-    self._model.solver_add_bounds()  # 添加约束条件
-  File "C:\Users\Administrator\Desktop\carla_MPC\carla_MPC-main2\src\mcp_controller.py", line 785, in solver_add_bounds
-    self.solver = ca.nlpsol('solver', 'ipopt', nlp_prob, opts_setting)
-  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 30135, in nlpsol
-    return _casadi.nlpsol(*args)
-SystemError: <built-in function nlpsol> returned a result with an error set
+  File "C:\Users\Administrator\Desktop\carla_MPC\carla_MPC-main2\src\x_v2x_agent.py", line 597, in run_step
+    state = self._model.solve_MPC(
+  File "C:\Users\Administrator\Desktop\carla_MPC\carla_MPC-main2\src\mcp_controller.py", line 932, in solve_MPC
+    res = self.solver(x0=init_control, p=c_p,
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 24049, in __call__
+    return self.call(kwargs)
+  File "D:\anaconda\envs\MPC\lib\site-packages\casadi\casadi.py", line 20698, in call
+    return _casadi.Function_call(self, *args)
+SystemError: <built-in function Function_call> returned a result with an error set
